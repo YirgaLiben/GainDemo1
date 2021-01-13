@@ -12,6 +12,8 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
+name: $(TeamProject)_$(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
 steps:
 
 - task: DotNetCoreCLI@2
@@ -22,6 +24,8 @@ steps:
 
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+
+- script: echo '$(Build.BuildNumber)'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'

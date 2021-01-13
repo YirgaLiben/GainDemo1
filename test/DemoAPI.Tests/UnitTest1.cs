@@ -11,7 +11,7 @@ namespace DemoAPI.Tests
         public void VerifyReturnValue()
         {
             var returnValue = controller.Get(1); //test
-            Assert.Equal("Yirgat", returnValue.Value);
+            Assert.Equal("Yirga", returnValue.Value);
 
         }
     }
